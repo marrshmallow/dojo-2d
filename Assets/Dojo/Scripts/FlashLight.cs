@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
@@ -26,6 +25,7 @@ public class FlashLight : MonoBehaviour
         StopCoroutine(PlayAnimation());
     }
 
+    // 점멸하는 플래시 라이트
     IEnumerator PlayAnimation()
     {
         while (time < duration)
@@ -34,7 +34,7 @@ public class FlashLight : MonoBehaviour
             light2D.enabled = true;
             SetFlashLight();
 
-            yield return null;
+            yield return null; // while 루프가 한 프레임 동안 무한대로 반복되지 않게 하기 위한 장치
         }
 
         light2D.enabled = false;
@@ -45,6 +45,7 @@ public class FlashLight : MonoBehaviour
         StartCoroutine(PlayAnimation());
     }
 
+    // 위치와 색상을 랜덤하게 바꿔줌
     void SetFlashLight()
     {
         light2D.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));

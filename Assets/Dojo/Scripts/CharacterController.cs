@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class CharacterController : MonoBehaviour
@@ -23,6 +21,7 @@ public class CharacterController : MonoBehaviour
         currentState = state;
 
         // エフェクトを変更
+        // StartEffect 메소드는 SmokeParticle, SweatParticle, WarpEffect에 있다
         gameObject.BroadcastMessage("StartEffect", state, SendMessageOptions.DontRequireReceiver);
 
         // Animatorのステート変更

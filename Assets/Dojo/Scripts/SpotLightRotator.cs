@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpotLightRotator : MonoBehaviour
 {
@@ -13,11 +11,10 @@ public class SpotLightRotator : MonoBehaviour
         random = Random.Range(0, 1f);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        var t = Time.time / speed + random;
-        var r = animCurve.Evaluate(t - Mathf.Floor(t));
+        float t = Time.time / speed + random;
+        float r = animCurve.Evaluate(t - Mathf.Floor(t));
         var v = new Vector3(0, 0, r);
         transform.localEulerAngles = v;
     }
